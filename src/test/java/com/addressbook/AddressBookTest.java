@@ -31,4 +31,9 @@ public class AddressBookTest {
         PersonDetails personDetails=new PersonDetails("amit", "kumar", "patna", "patna", "Bihar", "411048", "7758039722");
         Assert.assertEquals("7758039722", addressBookAnalyser.addPersonDetailsInFile(personDetails).iterator().next().getPhoneNumber());
     }
+    @Test
+    public void givenFile_whenAddPersonDetails_shouldReturnFullName() {
+        PersonDetails personDetails=new PersonDetails("amit", "kumar", "patna", "patna", "Bihar", "411048", "7758039722");
+        Assert.assertEquals("amit kumar", addressBookAnalyser.addPersonDetailsInFile(personDetails).iterator().next().getFullName());
+    }
 }
