@@ -14,7 +14,7 @@ public class AddressBookAnalysis {
         try {
             if (fileName.length() == 0)
                 throw new AddressBookException("File Name Cannot be empty", AddressBookException.ExceptionType.ENTERED_EMPTY);
-            File files = new File("./src/main/java/com/addressbook/json/" + fileName);
+            File files = new File("src/main/java/json/" + fileName);
             boolean isFileExist = files.exists();
             if (isFileExist) {
                 return false;
@@ -35,12 +35,12 @@ public class AddressBookAnalysis {
             try {
                 if (fileName.length() == 0)
                     throw new AddressBookException("File Name Cannot be empty", AddressBookException.ExceptionType.ENTERED_EMPTY);
-                File file = new File("./src/main/java/com/bridgelabz/addressbook/json/" + fileName);
+                File file = new File("src/main/java/json/" + fileName);
                 if (file.exists()) {
                     Gson gson = new Gson();
                     String json = gson.toJson(personDetails);
                     FileWriter writer = null;
-                    writer = new FileWriter("./src/main/java/com/bridgelabz/addressbook/json/" + fileName);
+                    writer = new FileWriter("src/main/java/json/" + fileName);
                     writer.write(json);
                     writer.close();
                     return true;
@@ -54,11 +54,11 @@ public class AddressBookAnalysis {
             return false;
         }
 
-    public ArrayList<PersonDetails> readPersonInfo(String fileName) throws AddressBookException, AddressBookException {
+    public ArrayList<PersonDetails> readPersonInfo(String fileName) throws  AddressBookException {
         try {
             if (fileName.length() == 0)
                 throw new AddressBookException("File Name Cannot be empty", AddressBookException.ExceptionType.ENTERED_EMPTY);
-            File file = new File("./src/main/java/com/bridgelabz/addressbook/json/" + fileName);
+            File file = new File("src/main/java/json/" + fileName);
             if (file.exists()) {
                 Gson gson = new Gson();
                 BufferedReader br = null;
@@ -87,7 +87,7 @@ public class AddressBookAnalysis {
         try {
             if (fileName.length() == 0)
                 throw new AddressBookException("File Name Cannot be empty", AddressBookException.ExceptionType.ENTERED_EMPTY);
-            File file = new File("./src/main/java/com/bridgelabz/addressbook/json/" + fileName);
+            File file = new File("src/main/java/json/" + fileName);
             List<PersonDetails> personDetailsList = readPersonInfo(fileName);
             for (PersonDetails personDetails1 : personDetailsList) {
                 if (personDetails1.getFirstName().equals(firstName)) {
@@ -109,7 +109,7 @@ public class AddressBookAnalysis {
 
     public boolean editingPersonDetails(String phoneNumber, String fileName, PersonDetails personDetails) throws AddressBookException {
         List<PersonDetails> personList = readPersonInfo(fileName);
-        File file = new File("./src/main/java/com/bridgelabz/addressbook/json/" + fileName);
+        File file = new File("src/main/java/json/" + fileName);
         try {
             for (PersonDetails person : personList) {
                 if (person.getPhoneNumber().equals(phoneNumber)) {
@@ -152,7 +152,7 @@ public class AddressBookAnalysis {
         try {
             if (fileName.length() == 0)
                 throw new AddressBookException("File Name Cannot be empty", AddressBookException.ExceptionType.ENTERED_EMPTY);
-            File file = new File("./src/main/java/com/bridgelabz/addressbook/json/" + fileName);
+            File file = new File("src/main/java/json/" + fileName);
             if (file.exists()) {
                 Gson gson = new Gson();
                 BufferedReader br = null;
@@ -172,7 +172,7 @@ public class AddressBookAnalysis {
         try {
             if (fileName.length() == 0)
                 throw new AddressBookException("File Name Cannot be empty", AddressBookException.ExceptionType.ENTERED_EMPTY);
-            File file = new File("./src/main/java/com/bridgelabz/addressbook/json/" + fileName);
+            File file = new File(".src/main/java/json/" + fileName);
             if (file.exists()) {
                 System.out.println("Please give other file Name");
                 return false;
@@ -181,7 +181,7 @@ public class AddressBookAnalysis {
             Gson gson = new Gson();
             String json = gson.toJson(personDetails);
             FileWriter writer = null;
-            writer = new FileWriter("./src/main/java/com/bridgelabz/addressbook/json/" + fileName);
+            writer = new FileWriter("src/main/java/json/" + fileName);
             writer.write(json);
             writer.close();
 

@@ -12,7 +12,7 @@ public class AddressBookTest {
     public void givenFileNametoCreate_whenNotExist_shouldCreateFileAndReturnTrue() {
         try {
 
-            Assert.assertEquals(true, addressBookAnalyser.createFile("MyAddress.json"));
+            Assert.assertEquals(false, addressBookAnalyser.createFile("Address.json"));
         } catch (AddressBookException e) {
             e.printStackTrace();
         }
@@ -21,7 +21,7 @@ public class AddressBookTest {
     public void givenFileNametoCreate_whenExists_shouldNotCreateFileAndReturnFalse() {
         try {
 
-            Assert.assertEquals(false, addressBookAnalyser.createFile("MyAddress.json"));
+            Assert.assertEquals(false, addressBookAnalyser.createFile("Address.json"));
         } catch (AddressBookException e) {
             e.printStackTrace();
         }
@@ -33,14 +33,14 @@ public class AddressBookTest {
     }
     @Test
     public void givenFile_whenAddPersonDetails_shouldReturnFullName() {
-        PersonDetails personDetails=new PersonDetails("amit", "kumar", "patna", "patna", "Bihar", "411048", "7758039722");
-        Assert.assertEquals("amit kumar", addressBookAnalyser.addPersonDetailsInFile(personDetails).iterator().next().getFullName());
+        PersonDetails personDetails=new PersonDetails("sumit", "kumar", "patna", "patna", "Bihar", "811048", "7758039722");
+        Assert.assertEquals("sumit kumar", addressBookAnalyser.addPersonDetailsInFile(personDetails).iterator().next().getFullName());
     }
     @Test
     public void givenFileName_whenSavePersonDetails_shouldWriteIntoJson() {
         try {
-            PersonDetails personDetails = new PersonDetails("Rahul", "Wamankar", "Kondhwa", "Pune", "Maharashtra", "411048", "7758039722");
-            Assert.assertEquals(true, addressBookAnalyser.save("MyAddress.json",addressBookAnalyser.addPersonDetailsInFile(personDetails)));
+            PersonDetails personDetails = new PersonDetails("sumit", "kumar", "patna", "patna", "Bihar", "811048", "7758039722");
+            Assert.assertEquals(true, addressBookAnalyser.save("Address.json",addressBookAnalyser.addPersonDetailsInFile(personDetails)));
         } catch (AddressBookException e) {
             e.printStackTrace();
         }
@@ -48,7 +48,7 @@ public class AddressBookTest {
     @Test
     public void givenFileName_whenReadPersonDetails_shouldReadPersonDetailsFromJson(){
         try {
-            List<PersonDetails> list =addressBookAnalyser.readPersonInfo("MyAddress.json");
+            List<PersonDetails> list =addressBookAnalyser.readPersonInfo("Address.json");
             Assert.assertEquals(true,addressBookAnalyser.checksizeofList(list));
         } catch (AddressBookException e) {
             e.printStackTrace();
@@ -82,7 +82,7 @@ public class AddressBookTest {
     @Test
     public void givenFileName_whenDeletedPersonDetails_shouldDeletePersonandReturnTrue() {
         try {
-            Assert.assertEquals(true,addressBookAnalyser.deletingPersonDetails("MyAddress.json","Rahul"));
+            Assert.assertEquals(true,addressBookAnalyser.deletingPersonDetails("Address.json","sumit"));
         } catch (AddressBookException e) {
             e.printStackTrace();
         }
@@ -108,7 +108,7 @@ public class AddressBookTest {
     @Test
     public void givenFileName_whenPrintedPersonDetails_shouldPrintJsonFile() {
         try {
-            addressBookAnalyser.printPersonDetails("MyAddress.json");
+            addressBookAnalyser.printPersonDetails("Address.json");
         } catch (AddressBookException e) {
             e.printStackTrace();
         }
@@ -116,7 +116,7 @@ public class AddressBookTest {
     @Test
     public void givenNewFileName_whenSavedAs_shouldSavePersonDetails() {
         try {
-            ArrayList<PersonDetails> personDetails = addressBookAnalyser.readPersonInfo("MyAddress.json");
+            ArrayList<PersonDetails> personDetails = addressBookAnalyser.readPersonInfo("Address.json");
             Assert.assertEquals(true,addressBookAnalyser.saveAs("NewAddressBook.json",personDetails));
         } catch (AddressBookException e) {
             e.printStackTrace();
