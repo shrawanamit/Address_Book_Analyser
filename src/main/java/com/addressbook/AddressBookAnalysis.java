@@ -24,4 +24,9 @@ public class AddressBookAnalysis {
             throw new AddressBookException("Cannot Create File in path", AddressBookException.ExceptionType.CANNOT_CREATE_FILE);
         }
     }
+
+    public ArrayList<PersonDetails> addPersonDetailsInFile(PersonDetails personDetails) {
+        personInformation.add(personDetails);
+        return personInformation;
+    }
 }
