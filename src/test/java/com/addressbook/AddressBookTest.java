@@ -87,6 +87,15 @@ public class AddressBookTest {
             e.printStackTrace();
         }
     }
+    @Test
+    public void givenFileName_whenEditPersonDetails_shouldReturnUpdatedDetails() {
+        try {
+            PersonDetails personDetails = new PersonDetails("Amit", "umar", "pune", "pune", "Maharashtra", "411048", "8806787166");
+            Assert.assertEquals(true, addressBookAnalyser.editingPersonDetails("7758039722", "MyAddress.json", personDetails));
+        } catch (AddressBookException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 

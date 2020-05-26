@@ -66,4 +66,32 @@ public class PersonDetails {
                 ", fullName='" + fullName + '\'' +
                 '}';
     }
+    public void AssignFirstName(String firstName) {
+        FirstName = firstName;
+    }
+
+    public void AssignLastName(String lastName) {
+        LastName = lastName;
+    }
+
+    public void AssignAddress(String address) {
+        Address = address;
+    }
+
+    public void AssignCity(String city) {
+        City = city;
+    }
+
+    public void AssignState(String state) {
+        State = state;
+    }
+
+    public void AssignZip(String zip) {
+        Zip = zip;
+    }
+
+    public void AssignPhoneNumber(String phoneNumber) {
+        PhoneNumber = phoneNumber;
+    }
+
 }
