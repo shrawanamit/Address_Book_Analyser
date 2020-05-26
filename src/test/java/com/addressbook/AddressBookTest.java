@@ -63,5 +63,14 @@ public class AddressBookTest {
             Assert.assertEquals(AddressBookException.ExceptionType.NO_FILE_FOUND,e.type);
         }
     }
+    @Test
+    public void givenEmptyFileName_whenReadPersonDetails_shouldReturnCustomException(){
+        try {
+            addressBookAnalyser.readPersonInfo("");
+        } catch (AddressBookException e) {
+            Assert.assertEquals(AddressBookException.ExceptionType.ENTERED_EMPTY,e.type);
+        }
+    }
+
 
 }
