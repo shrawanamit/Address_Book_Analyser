@@ -100,7 +100,15 @@ public class AddressBookTest {
     public void givenFileName_whenSortPersonDetailsByName_shouldReturnSortedNameAtFirst() {
         try {
             ArrayList<PersonDetails> sortedData=addressBookAnalyser.getFieldWiseSortedData(SortedByField.Parameter.FIRST_NAME,"MyAddress.json");
-            Assert.assertEquals("Akash",sortedData.get(0).FirstName);
+            Assert.assertEquals("amit",sortedData.get(0).FirstName);
+        } catch (AddressBookException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void givenFileName_whenPrintedPersonDetails_shouldPrintJsonFile() {
+        try {
+            addressBookAnalyser.printPersonDetails("MyAddress.json");
         } catch (AddressBookException e) {
             e.printStackTrace();
         }

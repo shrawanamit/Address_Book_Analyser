@@ -148,5 +148,24 @@ public class AddressBookAnalysis {
         return sortedData;
     }
 
+    public void printPersonDetails(String fileName) throws AddressBookException {
+        try {
+            if (fileName.length() == 0)
+                throw new AddressBookException("File Name Cannot be empty", AddressBookException.ExceptionType.ENTERED_EMPTY);
+            File file = new File("./src/main/java/com/bridgelabz/addressbook/json/" + fileName);
+            if (file.exists()) {
+                Gson gson = new Gson();
+                BufferedReader br = null;
+                br = new BufferedReader(new FileReader(file));
+                PersonDetails[] personDetails = gson.fromJson(br, PersonDetails[].class);
+                System.out.println(Arrays.toString(personDetails));
+                for (int i = 0; i < personDetails.length; i++) {
+                    personInformation.add(personDetails[i]);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
