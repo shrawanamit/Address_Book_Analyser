@@ -134,5 +134,19 @@ public class AddressBookAnalysis {
         }
         return false;
     }
+    public ArrayList getFieldWiseSortedData(SortedByField.Parameter parameter, String fileName) throws AddressBookException {
+        List<PersonDetails> personList = readPersonInfo(fileName);
+        Comparator<PersonDetails> personDetailsComparator;
+        if (personList == null || personList.size() == 0) {
+            throw new AddressBookException("No Data Found", AddressBookException.ExceptionType.NO_FILE_FOUND);
+        }
+        personDetailsComparator = SortedByField.getParameter(parameter);
+        ArrayList sortedData = personList.stream()
+                .sorted(personDetailsComparator)
+                .collect(Collectors.toCollection(ArrayList::new));
+        this.save(fileName, sortedData);
+        return sortedData;
+    }
+
 }
 
