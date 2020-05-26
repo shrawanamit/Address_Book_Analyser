@@ -45,4 +45,13 @@ public class AddressBookTest {
             e.printStackTrace();
         }
     }
+    @Test
+    public void givenFileName_whenReadPersonDetails_shouldReadPersonDetailsFromJson(){
+        try {
+            List<PersonDetails> list =addressBookAnalyser.readPersonInfo("MyAddress.json");
+            Assert.assertEquals(true,addressBookAnalyser.checksizeofList(list));
+        } catch (AddressBookException e) {
+            e.printStackTrace();
+        }
+    }
 }
