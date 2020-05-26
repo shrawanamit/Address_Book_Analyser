@@ -167,5 +167,28 @@ public class AddressBookAnalysis {
             e.printStackTrace();
         }
     }
+
+    public boolean saveAs(String fileName, ArrayList<PersonDetails> personDetails) throws AddressBookException {
+        try {
+            if (fileName.length() == 0)
+                throw new AddressBookException("File Name Cannot be empty", AddressBookException.ExceptionType.ENTERED_EMPTY);
+            File file = new File("./src/main/java/com/bridgelabz/addressbook/json/" + fileName);
+            if (file.exists()) {
+                System.out.println("Please give other file Name");
+                return false;
+            }
+            this.createFile(fileName);
+            Gson gson = new Gson();
+            String json = gson.toJson(personDetails);
+            FileWriter writer = null;
+            writer = new FileWriter("./src/main/java/com/bridgelabz/addressbook/json/" + fileName);
+            writer.write(json);
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return true;
+    }
 }
 
