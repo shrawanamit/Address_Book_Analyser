@@ -79,6 +79,15 @@ public class AddressBookTest {
             Assert.assertEquals(AddressBookException.ExceptionType.ENTERED_NULL,e.type);
         }
     }
+    @Test
+    public void givenFileName_whenDeletedPersonDetails_shouldDeletePersonandReturnTrue() {
+        try {
+            Assert.assertEquals(true,addressBookAnalyser.deletingPersonDetails("MyAddress.json","Rahul"));
+        } catch (AddressBookException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 }
