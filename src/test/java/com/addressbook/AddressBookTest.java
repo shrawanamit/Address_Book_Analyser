@@ -17,4 +17,13 @@ public class AddressBookTest {
             e.printStackTrace();
         }
     }
+    @Test
+    public void givenFileNametoCreate_whenExists_shouldNotCreateFileAndReturnFalse() {
+        try {
+
+            Assert.assertEquals(false, addressBookAnalyser.createFile("MyAddress.json"));
+        } catch (AddressBookException e) {
+            e.printStackTrace();
+        }
+    }
 }
